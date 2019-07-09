@@ -1,0 +1,19 @@
+---
+- name: install httpd
+  yum:
+   name: "{{ packages }}"
+   state: present
+
+- name: start the service
+  service:
+   name: "{{ services }}"
+   state: started
+   enabled: yes
+
+- name: creating the index file
+  template:
+   src: testfile.txt
+   dest: /var/www/html/index.html
+  notify:
+   - restarts
+...

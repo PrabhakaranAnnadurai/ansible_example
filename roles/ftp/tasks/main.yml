@@ -1,0 +1,13 @@
+---
+- name: install sftp
+  yum:
+   name: "{{ packages }}"
+   state: present
+- name: upload files
+  copy:
+   dest: /var/ftp/pub
+   src: "{{ item }}"
+  notify:
+   - restarts
+  with_items: "{{ files }}"
+...

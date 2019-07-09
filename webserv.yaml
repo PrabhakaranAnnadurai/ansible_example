@@ -1,0 +1,19 @@
+---
+- name: local variable declaration
+  hosts: all
+  vars:
+   - package: httpd
+   - services: httpd
+  tasks:
+   - name: checkecking the package
+     command: "rpm -qa {{ package }}"
+     register: output
+   - name: print the json output
+     debug:
+      var: output
+   - name: install package
+     yum:
+      name: "{{ package }}"
+      state: present
+     when: output.stdout == ""
+...

@@ -1,0 +1,30 @@
+---
+- name: block and rescue
+  hosts: node1
+  tasks:
+   - block:
+      - name: check the file
+        file:
+         path: /home/ansible/testfile2
+      - name: print msg
+        debug:
+         msg: "file already exists"
+     rescue:
+      - name: create the file
+        file:
+         path: /home/ansible/testfile2
+         state: touch
+         mode: 0644
+         owner: ansible
+         group: ansible
+      - name: print msg
+        debug:
+         msg: "file created"
+     always:
+      - name: change permission
+        file:
+         path: /home/ansible/testfile2
+         mode: '0644'
+         owner: ansible
+         group: ansible   
+...

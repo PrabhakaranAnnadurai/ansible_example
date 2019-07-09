@@ -1,0 +1,4 @@
+---
+package_firewall: firewalld
+service_firewall: firewalld
+serv: ftp

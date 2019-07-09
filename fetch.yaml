@@ -1,0 +1,10 @@
+---
+- name: fetch
+  hosts: node1
+  tasks:
+   - name: fetch
+     fetch:
+      src: /etc/hostentry
+      dest: /tmp/fetched3/hostentry
+      flat: yes  
+...  

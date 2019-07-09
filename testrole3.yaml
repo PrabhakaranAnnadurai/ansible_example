@@ -1,0 +1,6 @@
+---
+- name: testing the roles
+  hosts: all
+  roles:
+   - { role: apache, packages: sftpd, services: sftpd }
+...

@@ -1,0 +1,9 @@
+---
+- name:  create file
+  hosts: all
+  tasks:
+   - name: include some line
+     lineinfile:
+      path: /home/ansible/testfile3
+      line: testcontent
+      create: yes

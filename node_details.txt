@@ -1,0 +1,5 @@
+hostname	{{ ansible_hostname }}
+ipv4		{{ ansible_default_ipv4.address }}
+fqdn		{{ ansible_fqdn }}
+vpcus		{{ ansible_processor_vcpus }}
+osfamily	{{ ansible_os_family }}

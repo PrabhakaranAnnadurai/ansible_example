@@ -1,0 +1,14 @@
+---
+- name: Mail example
+  hosts: localhost
+  tasks:
+   - name: send mail
+     mail:
+      host: smtp.gmail.com
+      port: 587
+      username: praba.mobile123@gmail.com
+      password: lzpilxloxnewxkje
+      to: praba.a123@gmail.com
+      subject: Ansible-report
+      body: System {{ ansible_hostname }} has been successfully provisioned.
+...

@@ -1,0 +1,33 @@
+---
+- name: handlers example
+  hosts: node1
+  ignore_errors: yes
+  tasks:
+   - name: install package
+     yum:
+      name: httpd
+      state: latest
+     register: output
+   - name: print output
+     debug:
+      var: output
+   - name: start service
+     service:
+      name: httpd
+      state: restarted
+   - name: generate index file
+     copy:
+      dest: /var/www/html/index.html
+      content: |
+       hello world
+     notify:
+      - restart
+   - name: msg
+     debug:
+      msg: "static website"
+  handlers:
+   - name: restart
+     service:
+      name: httpd
+      state: restarted
+...

@@ -1,0 +1,9 @@
+---
+- name: copy template
+  hosts: all
+  tasks:
+   - name: copy file
+     template:
+      src: node_details.txt
+      dest: /var/tmp/{{ansible_hostname}}
+...

@@ -1,0 +1,10 @@
+---
+- name: replace module
+  hosts: all
+  tasks:
+   - name: replace string
+     replace:
+      path: /etc/hostentry
+      regexp: "(?i)AllowOverride none"
+      replace: "AllowOverride Authconfig"
+... 

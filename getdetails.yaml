@@ -1,0 +1,9 @@
+---
+- name: get details
+  hosts: all
+  tasks:
+  - name: create file with details
+    template:
+     src: node_details.txt
+     dest: /var/tmp/
+..

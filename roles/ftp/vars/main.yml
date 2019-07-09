@@ -1,0 +1,5 @@
+---
+packages: vsftpd
+files: 
+ - file1
+ - file2

@@ -1,0 +1,14 @@
+---
+- name: delegate example
+  hosts: node1
+  tasks:
+   - name: "install httpd"
+     httpd:
+      name: httpd
+      state: present
+     register: output
+   - name: report
+     template:
+      src: test1.txt
+     delegate_to: localhost
+...

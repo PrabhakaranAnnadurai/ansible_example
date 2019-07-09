@@ -1,0 +1,15 @@
+---
+- name: Vault example with protected variable file
+  hosts: all
+  vars_files:
+   - variable_file1.yaml
+  tasks:
+   - name: install httpd
+     yum:
+      name: httpd
+      state: present
+   - name: start httpd
+     service:
+      name: httpd
+      state: restarted
+...

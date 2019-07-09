@@ -1,0 +1,9 @@
+---
+- name: copy template
+  hosts: all
+  tasks:
+   - name: copy file
+     template:
+      src: file.txt
+      dest: /var/tmp/
+...

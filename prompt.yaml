@@ -1,0 +1,21 @@
+---
+ - name: prompt
+   hosts: node1
+   vars_prompt:
+    - name: package
+      prompt: "enter package name"
+      private: yes
+    - name: service
+      prompt: "enter service name"
+      private: no 
+   tasks:
+    - name: install packages
+      yum:
+       name: "{{ package }}"
+       state: latest
+
+    - name: start service
+      service:
+       name: "{{ service }}"
+       state: restarted
+...

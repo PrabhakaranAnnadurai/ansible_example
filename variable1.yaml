@@ -1,0 +1,21 @@
+---
+- name: local variable declaration
+  hosts: all
+  vars:
+   - pkg: vsftpd
+   - serv: vsftpd
+  tasks:
+   - name: installing the ftp package
+     yum:
+      name: "{{ pkg }}"
+      state: latest
+     tags:
+      ftppack
+   - name: enabling service
+     service:
+      name: "{{ serv }}"
+      state: started
+      enabled: yes
+     tags:
+      ftpserv
+...

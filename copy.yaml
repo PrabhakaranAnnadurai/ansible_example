@@ -1,0 +1,16 @@
+---
+- name: copy and lineinfile
+  hosts: all
+  tasks:
+   - name: copy hostentry
+     copy:
+      src: /etc/hosts
+      dest: /etc/hostentry
+      remote_src: yes
+      mode: '0755'
+   - name: add an entry
+     lineinfile:
+      path: /etc/hostentry
+      insertafter: '^127\.0\.0\.1'
+      line: 127.0.0.1 testlocal
+...     

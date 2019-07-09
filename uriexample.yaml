@@ -1,0 +1,12 @@
+---
+- name: check the status of website
+  hosts: node1
+  tasks:
+   - name: checking the site
+     uri:
+      url: https://www.google.com
+
+   - name: display content
+     debug:
+      msg: "url working"
+..

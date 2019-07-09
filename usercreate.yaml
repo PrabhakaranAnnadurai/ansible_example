@@ -1,0 +1,14 @@
+---
+- name: Create users
+  hosts: all
+  vars_files:
+   - userlist.yaml
+  tasks:
+   - name: create user
+     user:
+      name: "{{ item }}"
+      comment: testing
+      group: wheel
+     with_items:
+      - "{{ userlist }}"
+...
